@@ -48,10 +48,10 @@ namespace Sahara.Core.Application.Segments.Public
 
     public static class SegmentationManager
     {
-        /// <summary>
-        /// Inform CoreServices of upload of user segment, this is a .csv file - comma deliminated - emails only on intermediary storage.
 
         #region Upload & Process
+            
+        // Inform CoreServices of upload of user segment, this is a .csv file - comma deliminated - emails only on intermediary storage.
 
         public static DataAccessResponseType InitiateSegmentCustomerProcessing(Account account, string locationPath, string sourceContainerName, string fileName)
         {
