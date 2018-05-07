@@ -39,19 +39,14 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Sahara.Core.Application.Products.Public
+namespace Sahara.Core.Application.Segments.Public
 {
     internal class NameList
     {
         public string FullyQualifiedName = string.Empty;
     }
 
-    /// <summary>
-    /// Each account has a set amount of products it can have (Determined by the account plan/tier they are on)
-    /// Each product is represented by a document within the DocumentDB database for each account within the "ApplicationProducts" collection
-    /// 
-    /// </summary>
-    public static class ProductManager
+    public static class SegmentationManager
     {
         /// <summary>
         /// Inform CoreServices of upload of user segment, this is a .csv file - comma deliminated - emails only on intermediary storage.
@@ -64,9 +59,7 @@ namespace Sahara.Core.Application.Products.Public
 
             //Inform worker role that a file is ready for processing
             PlatformQueuePipeline.SendMessage.ProcessSegmentCustomers(account.AccountID.ToString(), locationPath, sourceContainerName, fileName);
-
-            //TODO: Note that this categorization cannot have segment data uploaded again. Block UI from allowing during processing (or show that processing is happening)
-
+            
             result.isSuccess = true;
 
             return result;
@@ -80,7 +73,7 @@ namespace Sahara.Core.Application.Products.Public
             var result = new DataAccessResponseType();
 
 
-            #region Get properties ready for product/user objects
+            #region Get properties ready for segment/user objects
 
             var ageProperty = PropertiesManager.GetProperty(account, "age");
             var fullNameProperty = PropertiesManager.GetProperty(account, "fullname");
