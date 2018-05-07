@@ -1,4 +1,4 @@
-# LookingGlass
+# Looking Glass
 An unfinished plug-in for [The Sahara Framework](https://github.com/INNVTV/Sahara-Framework) that turns the platform into a searchable customer database that allows for segmentation, profiles and psychological analysis.
 
 **Aggregates multiple services such as:**
